@@ -1,0 +1,6 @@
+GET http://localhost:8000/jwt/set
+
+
+### ask server to decrypt and return our JWT
+GET http://localhost:9000/jwt/get
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3MTI5Mzc4MyIsImVtYWlsIjoiYm9iQGdtYWlsLmNvbSIsImFjY291bnRUeXBlIjoiYWRtaW4iLCJpc0xvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NTc3MTcxOTQsImV4cCI6MTY1NzcyMDc5NH0.PKsYcNoyVu_0W1rPFp3-lakwy8HM_nB-bzmUkQeIJ18
