@@ -1,6 +1,10 @@
-GET http://localhost:8000/jwt/set
+POST http://localhost:9000/auth/login
+Content-Type: application/json
+
+{"email":"bob@gmail222.com", "password":"d33333efaultPassword123"}
+
 
 
 ### ask server to decrypt and return our JWT
-GET http://localhost:9000/jwt/get
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3MTI5Mzc4MyIsImVtYWlsIjoiYm9iQGdtYWlsLmNvbSIsImFjY291bnRUeXBlIjoiYWRtaW4iLCJpc0xvZ2dlZEluIjp0cnVlLCJpYXQiOjE2NTc3MTcxOTQsImV4cCI6MTY1NzcyMDc5NH0.PKsYcNoyVu_0W1rPFp3-lakwy8HM_nB-bzmUkQeIJ18
+GET http://localhost:9000/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYzNzUyOSwiZW1haWwiOiJib2JAZ21haWwyMjIuY29tIiwicGFzc3dvcmQiOiJkMzMzMzNlZmF1bHRQYXNzd29yZDEyMyIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY1NzcxODU4MSwiZXhwIjoxNjU3NzIyMTgxfQ.DOJnK8XMcphgz8MCF0sussqOFHhyHLTFVinIvH5s-rI

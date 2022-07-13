@@ -1,5 +1,5 @@
 import express from "express";
-import jwt from "jsonwebtoken";
+import authRouter from "./routes/auth.js";
 
 if (!process.env.PORT) {
   console.log("please provide PORT number and try again");
@@ -11,40 +11,9 @@ if (!process.env.SECRET) {
 }
 
 const app = express();
+app.use(express.json());
 
-app.get("/jwt/get", (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
-  //Authorization: 'Bearer TOKEN'
-  if (!token) {
-    res
-      .status(200)
-      .json({ success: false, message: "Error! Token was not provided." });
-  }
-  const decodedToken = jwt.verify(token, process.env.SECRET);
-  res.status(200).json({ success: true, data: decodedToken });
-});
-
-app.get("/jwt/set", (req, res) => {
-  let token;
-  try {
-    //Creating jwt token
-    token = jwt.sign(
-      {
-        userId: "71293783",
-        email: "bob@gmail.com",
-        accountType: "admin",
-        isLoggedIn: true,
-      },
-      process.env.SECRET,
-      { expiresIn: "1h" }
-    );
-    console.log(token);
-  } catch (e) {}
-  res.status(201).json({
-    success: true,
-    data: { token },
-  });
-});
+app.use("/auth", authRouter);
 
 app.listen(process.env.PORT, () =>
   console.log("listening on " + process.env.PORT)
