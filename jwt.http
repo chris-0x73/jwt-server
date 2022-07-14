@@ -1,10 +1,26 @@
+### ask server to decrypt and return our JWT
+GET http://localhost:9000/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmNmZGFhODk5ZjUyZDNmOTAzYjcwZWQiLCJlbWFpbCI6ImNocmlzQGdtYWlsLmNvbSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY1Nzc5MDYzOCwiZXhwIjoxNjU3Nzk0MjM4fQ.kvB3Sy8CeebGBhL9T82we77eaFJYeUMhpC7XqYS7Qmo
+
+### AUTHENTICATION 
+
+### LOGIN
 POST http://localhost:9000/auth/login
 Content-Type: application/json
 
-{"email":"bob@gmail222.com", "password":"d33333efaultPassword123"}
+{"email":"chris@gmail.com", "password":"plainPassword123"}
 
+### REGISTER
+POST http://localhost:9000/auth/register
+Content-Type: application/json
 
+{"email":"chris@gmail.com", "password":"plainPassword123"}
 
-### ask server to decrypt and return our JWT
-GET http://localhost:9000/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYzNzUyOSwiZW1haWwiOiJib2JAZ21haWwyMjIuY29tIiwicGFzc3dvcmQiOiJkMzMzMzNlZmF1bHRQYXNzd29yZDEyMyIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY1NzcxODU4MSwiZXhwIjoxNjU3NzIyMTgxfQ.DOJnK8XMcphgz8MCF0sussqOFHhyHLTFVinIvH5s-rI
+### AUTHORIZATION
+
+### GET MESSAGES ( AUTHORIZATION EXAMPLE with logged-in user ) 
+GET http://localhost:9000/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmNmZGFhODk5ZjUyZDNmOTAzYjcwZWQiLCJlbWFpbCI6ImNocmlzQGdtYWlsLmNvbSIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTY1Nzc5MDYzOCwiZXhwIjoxNjU3Nzk0MjM4fQ.kvB3Sy8CeebGBhL9T82we77eaFJYeUMhpC7XqYS7Qmo
+
+### GET MESSAGES ( AUTHORIZATION EXAMPLE withOUT logged-in user ) 
+GET http://localhost:9000/messages
